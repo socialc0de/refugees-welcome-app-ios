@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftyJSON
+import Alamofire
 
 class PhrasebookViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -20,7 +21,7 @@ class PhrasebookViewController: UIViewController, UITableViewDataSource, UITable
     @IBOutlet weak var submitBtn: UIButton!
     
     let translationCellIdentifier = "translationCell"
-    var phrases = JSON!
+    var phrases = [JSON]()
     
     
     override func viewDidLoad() {
@@ -28,19 +29,28 @@ class PhrasebookViewController: UIViewController, UITableViewDataSource, UITable
         translationTable.dataSource = self
         translationTable.delegate = self
         
-        let jsonFilePath:NSString = NSBundle.mainBundle().pathForResource("src/phrases/animals.json", ofType: "json")!
-        let jsonData:NSData = NSData.dataWithContentsOfMappedFile(jsonFilePath as String) as! NSData
-        let error:NSError?
-        phrases = JSON(data: jsonData)
-
+        
+        Alamofire.request(.GET, "http://pajowu.de:8080/phrasebook/all")
+            .response {
+                (_, response, data, error) in
+                if (error != nil) {
+                    print(error)
+                } else {
+                    if let jsonData = data {
+                        let data = JSON(data: jsonData)
+                        self.phrases = data["phrases"].arrayValue
+                        self.translationTable.reloadData()
+                    }
+                }
+        }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
@@ -51,8 +61,9 @@ class PhrasebookViewController: UIViewController, UITableViewDataSource, UITable
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("translationCell", forIndexPath: indexPath) as! TranslationTableViewCell
-        cell.firstLanguageLabel.text = phrases['German'].stringValue
-        cell.targetLanguageLabel.text = phrases['English'].stringValue
+        
+        cell.firstLanguageLabel.text = phrases[indexPath.row]["German"].stringValue
+        cell.targetLanguageLabel.text = phrases[indexPath.row]["English"].stringValue
         
         return cell
     }
