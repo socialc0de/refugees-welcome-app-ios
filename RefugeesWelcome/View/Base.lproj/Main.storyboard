@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ML8-0Z-2gg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ML8-0Z-2gg">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -19,56 +19,65 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rxw-dm-OSO">
-                                <rect key="frame" x="0.0" y="64" width="414" height="100"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="80"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D78-gW-Yfa">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                                         <animations/>
-                                        <state key="normal" title="My Language"/>
+                                        <color key="backgroundColor" red="0.12156862745098039" green="0.27843137254901962" blue="0.53333333333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="Avt-T2-Qso"/>
+                                        </constraints>
+                                        <state key="normal" title="LANG A → LANG B">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onLanguageBtnClicked" destination="BYZ-38-t0r" eventType="touchUpInside" id="HaR-YI-cA2"/>
+                                        </connections>
                                     </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HpC-Rc-fPy">
+                                        <rect key="frame" x="0.0" y="50" width="414" height="30"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
                                 </subviews>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="D78-gW-Yfa" secondAttribute="bottom" id="0tQ-QV-Hto"/>
-                                    <constraint firstItem="D78-gW-Yfa" firstAttribute="leading" secondItem="Rxw-dm-OSO" secondAttribute="leading" id="VX4-Gh-cdG"/>
-                                    <constraint firstAttribute="trailing" secondItem="D78-gW-Yfa" secondAttribute="trailing" id="c7d-pc-ZeU"/>
-                                    <constraint firstItem="D78-gW-Yfa" firstAttribute="width" secondItem="Rxw-dm-OSO" secondAttribute="width" constant="-50" id="cuh-rk-4Jr"/>
-                                    <constraint firstAttribute="height" constant="100" id="sEd-uT-eTw"/>
-                                    <constraint firstItem="D78-gW-Yfa" firstAttribute="top" secondItem="Rxw-dm-OSO" secondAttribute="top" id="zUG-I1-l7C"/>
-                                    <constraint firstItem="D78-gW-Yfa" firstAttribute="leading" secondItem="Rxw-dm-OSO" secondAttribute="leading" constant="35" id="zdq-Y6-MRe"/>
+                                    <constraint firstItem="HpC-Rc-fPy" firstAttribute="top" secondItem="D78-gW-Yfa" secondAttribute="bottom" id="4UK-7g-Nzy"/>
+                                    <constraint firstAttribute="trailing" secondItem="D78-gW-Yfa" secondAttribute="trailing" id="7Z2-zP-z8Z"/>
+                                    <constraint firstItem="D78-gW-Yfa" firstAttribute="leading" secondItem="Rxw-dm-OSO" secondAttribute="leading" id="JXg-zJ-XD6"/>
+                                    <constraint firstItem="D78-gW-Yfa" firstAttribute="top" secondItem="Rxw-dm-OSO" secondAttribute="top" id="Onc-zG-7WG"/>
+                                    <constraint firstAttribute="trailing" secondItem="HpC-Rc-fPy" secondAttribute="trailing" id="QsH-14-JXv"/>
+                                    <constraint firstAttribute="bottom" secondItem="HpC-Rc-fPy" secondAttribute="bottom" id="m1d-0Y-bLx"/>
+                                    <constraint firstAttribute="height" constant="80" id="sEd-uT-eTw"/>
+                                    <constraint firstItem="HpC-Rc-fPy" firstAttribute="leading" secondItem="Rxw-dm-OSO" secondAttribute="leading" id="zlJ-Zn-s2A"/>
                                 </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="cuh-rk-4Jr"/>
-                                        <exclude reference="zdq-Y6-MRe"/>
-                                    </mask>
-                                </variation>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="94" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4GU-5S-NZ9">
-                                <rect key="frame" x="0.0" y="164" width="414" height="523"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4GU-5S-NZ9">
+                                <rect key="frame" x="0.0" y="144" width="414" height="543"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <inset key="separatorInset" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="translationCell" rowHeight="94" id="kXA-ab-1T4" customClass="TranslationTableViewCell" customModule="RefugeesWelcome" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="94"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="translationCell" rowHeight="60" id="kXA-ab-1T4" customClass="TranslationTableViewCell" customModule="RefugeesWelcome" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kXA-ab-1T4" id="fi8-LG-mVE">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="93"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="59"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PM7-Q3-K9m">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="93"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="59"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meine Sprache" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ozp-E6-sMT">
-                                                            <rect key="frame" x="8" y="8" width="398" height="39"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meine Sprache" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="ozp-E6-sMT">
+                                                            <rect key="frame" x="8" y="8" width="398" height="19"/>
                                                             <animations/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fremde Sprache" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="niF-P1-QOG">
-                                                            <rect key="frame" x="8" y="47" width="398" height="38"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fremde Sprache" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="niF-P1-QOG">
+                                                            <rect key="frame" x="8" y="32" width="398" height="19"/>
                                                             <animations/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -81,7 +90,7 @@
                                                         <constraint firstAttribute="bottomMargin" secondItem="niF-P1-QOG" secondAttribute="bottom" id="5cb-SI-9DS"/>
                                                         <constraint firstItem="niF-P1-QOG" firstAttribute="trailing" secondItem="PM7-Q3-K9m" secondAttribute="trailingMargin" id="C3A-Cc-uUq"/>
                                                         <constraint firstItem="ozp-E6-sMT" firstAttribute="leading" secondItem="PM7-Q3-K9m" secondAttribute="leadingMargin" id="G1l-ph-XXU"/>
-                                                        <constraint firstItem="niF-P1-QOG" firstAttribute="top" secondItem="ozp-E6-sMT" secondAttribute="bottom" id="J1P-5W-8tC"/>
+                                                        <constraint firstItem="niF-P1-QOG" firstAttribute="top" secondItem="ozp-E6-sMT" secondAttribute="bottom" constant="5" id="J1P-5W-8tC"/>
                                                         <constraint firstItem="ozp-E6-sMT" firstAttribute="top" secondItem="PM7-Q3-K9m" secondAttribute="topMargin" id="KbC-j2-qZI"/>
                                                         <constraint firstItem="niF-P1-QOG" firstAttribute="leading" secondItem="PM7-Q3-K9m" secondAttribute="leadingMargin" id="TaW-CM-lRK"/>
                                                         <constraint firstItem="niF-P1-QOG" firstAttribute="height" secondItem="ozp-E6-sMT" secondAttribute="height" id="TqA-L6-Gne"/>
@@ -117,20 +126,36 @@
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jDs-mW-d3t">
                                         <rect key="frame" x="0.0" y="407" width="414" height="216"/>
                                         <animations/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </pickerView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3GG-GZ-ZWR">
-                                        <rect key="frame" x="0.0" y="377" width="207" height="30"/>
+                                        <rect key="frame" x="0.0" y="367" width="207" height="40"/>
                                         <animations/>
-                                        <state key="normal" title="Switch"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="hHO-oU-hJU"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <state key="normal" title="⇆"/>
+                                        <connections>
+                                            <action selector="onExchangeLanguagesBtnClicked" destination="BYZ-38-t0r" eventType="touchUpInside" id="yYs-kW-gF2"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OqT-L0-F3I">
-                                        <rect key="frame" x="207" y="377" width="207" height="30"/>
+                                        <rect key="frame" x="207" y="367" width="207" height="40"/>
                                         <animations/>
-                                        <state key="normal" title="Submit"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="Tkx-dM-5Aa"/>
+                                        </constraints>
+                                        <state key="normal" title="OK"/>
+                                        <connections>
+                                            <action selector="onLanguageSelectSubmit" destination="BYZ-38-t0r" eventType="touchUpInside" id="Yof-Ol-rT1"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <animations/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.40000000000000002" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="jDs-mW-d3t" firstAttribute="top" secondItem="3GG-GZ-ZWR" secondAttribute="bottom" id="68t-kk-KxX"/>
                                     <constraint firstItem="3GG-GZ-ZWR" firstAttribute="width" secondItem="OqT-L0-F3I" secondAttribute="width" id="MzS-GZ-hST"/>
@@ -165,8 +190,6 @@
                         <outlet property="languageBtn" destination="D78-gW-Yfa" id="rSq-Y6-g5o"/>
                         <outlet property="pickerContainerView" destination="h6F-AV-heG" id="sn7-o7-gux"/>
                         <outlet property="pickerView" destination="jDs-mW-d3t" id="N52-Ch-FFB"/>
-                        <outlet property="submitBtn" destination="OqT-L0-F3I" id="aAk-oN-yis"/>
-                        <outlet property="switchBtn" destination="3GG-GZ-ZWR" id="ebT-VU-HZL"/>
                         <outlet property="translationTable" destination="4GU-5S-NZ9" id="7Dw-QR-4wD"/>
                     </connections>
                 </viewController>
