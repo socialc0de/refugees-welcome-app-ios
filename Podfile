@@ -6,6 +6,5 @@ use_frameworks!
 target 'RefugeesWelcome' do
   pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
   pod 'Alamofire', '~> 3.0'
-  pod  'CHCSVParser', '~> 2.1'
 end
 

@@ -23,6 +23,7 @@
 		54E9004F1BDBE6FD00FCA19A /* sexual.json in Resources */ = {isa = PBXBuildFile; fileRef = 54E900421BDBE6FD00FCA19A /* sexual.json */; };
 		54E900571BDBEB2500FCA19A /* blubTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E900561BDBEB2500FCA19A /* blubTableViewController.swift */; };
 		54EB58DA1BDBDEA700837401 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54EB58D91BDBDEA700837401 /* Launch Screen.xib */; };
+		9576224E1BDBE631001D2179 /* authorities.json in Resources */ = {isa = PBXBuildFile; fileRef = 9576224D1BDBE631001D2179 /* authorities.json */; settings = {ASSET_TAGS = (); }; };
 		95B7F9C81BDBCF0900D9CC4A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B7F9C71BDBCF0900D9CC4A /* AppDelegate.swift */; };
 		95B7F9CD1BDBCF0900D9CC4A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95B7F9CB1BDBCF0900D9CC4A /* Main.storyboard */; };
 		95B7F9CF1BDBCF0900D9CC4A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95B7F9CE1BDBCF0900D9CC4A /* Assets.xcassets */; };
@@ -34,21 +35,8 @@
 
 /* Begin PBXFileReference section */
 		0B7405B17B222E456B506B58 /* Pods_RefugeesWelcome.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RefugeesWelcome.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		54E900361BDBE6FD00FCA19A /* animals.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = animals.json; path = src/phrases/animals.json; sourceTree = "<group>"; };
-		54E900371BDBE6FD00FCA19A /* basic_adjectives.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = basic_adjectives.json; path = src/phrases/basic_adjectives.json; sourceTree = "<group>"; };
-		54E900381BDBE6FD00FCA19A /* basic.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = basic.json; path = src/phrases/basic.json; sourceTree = "<group>"; };
-		54E900391BDBE6FD00FCA19A /* children.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = children.json; path = src/phrases/children.json; sourceTree = "<group>"; };
-		54E9003A1BDBE6FD00FCA19A /* clothing.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = clothing.json; path = src/phrases/clothing.json; sourceTree = "<group>"; };
-		54E9003B1BDBE6FD00FCA19A /* colours.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = colours.json; path = src/phrases/colours.json; sourceTree = "<group>"; };
-		54E9003C1BDBE6FD00FCA19A /* direction.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = direction.json; path = src/phrases/direction.json; sourceTree = "<group>"; };
-		54E9003D1BDBE6FD00FCA19A /* food.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = food.json; path = src/phrases/food.json; sourceTree = "<group>"; };
-		54E9003E1BDBE6FD00FCA19A /* medical.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = medical.json; path = src/phrases/medical.json; sourceTree = "<group>"; };
-		54E9003F1BDBE6FD00FCA19A /* misc.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = misc.json; path = src/phrases/misc.json; sourceTree = "<group>"; };
-		54E900401BDBE6FD00FCA19A /* nature.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = nature.json; path = src/phrases/nature.json; sourceTree = "<group>"; };
-		54E900411BDBE6FD00FCA19A /* profession.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = profession.json; path = src/phrases/profession.json; sourceTree = "<group>"; };
-		54E900421BDBE6FD00FCA19A /* sexual.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = sexual.json; path = src/phrases/sexual.json; sourceTree = "<group>"; };
-		54E900561BDBEB2500FCA19A /* blubTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = blubTableViewController.swift; sourceTree = "<group>"; };
-		54EB58D91BDBDEA700837401 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "Launch Screen.xib"; path = "../../Launch Screen.xib"; sourceTree = "<group>"; };
+		54EB58D91BDBDEA700837401 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
+		9576224D1BDBE631001D2179 /* authorities.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = authorities.json; sourceTree = "<group>"; };
 		95B7F9C41BDBCF0900D9CC4A /* RefugeesWelcome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RefugeesWelcome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95B7F9C71BDBCF0900D9CC4A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95B7F9CC1BDBCF0900D9CC4A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -58,6 +46,7 @@
 		95B7F9DD1BDBD08600D9CC4A /* FAQViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FAQViewController.swift; sourceTree = "<group>"; };
 		95B7F9DF1BDBD09100D9CC4A /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		95B7F9E11BDBD87A00D9CC4A /* TranslationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranslationTableViewCell.swift; sourceTree = "<group>"; };
+		95F6C15F1BDBE6B600407682 /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
 		AF4E97C0A213186BF7335FDD /* Pods-RefugeesWelcome.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RefugeesWelcome.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RefugeesWelcome/Pods-RefugeesWelcome.debug.xcconfig"; sourceTree = "<group>"; };
 		DC58D4DDA1AA60327DDD08A1 /* Pods-RefugeesWelcome.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RefugeesWelcome.release.xcconfig"; path = "Pods/Target Support Files/Pods-RefugeesWelcome/Pods-RefugeesWelcome.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -83,41 +72,21 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		54E900341BDBE55200FCA19A /* src */ = {
+		9576224C1BDBE5DC001D2179 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				54E900351BDBE55B00FCA19A /* phrases */,
+				9576224D1BDBE631001D2179 /* authorities.json */,
 			);
-			name = src;
-			sourceTree = "<group>";
-		};
-		54E900351BDBE55B00FCA19A /* phrases */ = {
-			isa = PBXGroup;
-			children = (
-				54E900361BDBE6FD00FCA19A /* animals.json */,
-				54E900371BDBE6FD00FCA19A /* basic_adjectives.json */,
-				54E900381BDBE6FD00FCA19A /* basic.json */,
-				54E900391BDBE6FD00FCA19A /* children.json */,
-				54E9003A1BDBE6FD00FCA19A /* clothing.json */,
-				54E9003B1BDBE6FD00FCA19A /* colours.json */,
-				54E9003C1BDBE6FD00FCA19A /* direction.json */,
-				54E9003D1BDBE6FD00FCA19A /* food.json */,
-				54E9003E1BDBE6FD00FCA19A /* medical.json */,
-				54E9003F1BDBE6FD00FCA19A /* misc.json */,
-				54E900401BDBE6FD00FCA19A /* nature.json */,
-				54E900411BDBE6FD00FCA19A /* profession.json */,
-				54E900421BDBE6FD00FCA19A /* sexual.json */,
-			);
-			name = phrases;
+			path = src;
 			sourceTree = "<group>";
 		};
 		95B7F9BB1BDBCF0800D9CC4A = {
 			isa = PBXGroup;
 			children = (
+				D36322A50B775A4746261EDF /* Frameworks */,
+				20D2539F3AACACCF34851953 /* Pods */,
 				95B7F9C51BDBCF0900D9CC4A /* Products */,
 				95B7F9C61BDBCF0900D9CC4A /* RefugeesWelcome */,
-				20D2539F3AACACCF34851953 /* Pods */,
-				D36322A50B775A4746261EDF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -132,11 +101,12 @@
 		95B7F9C61BDBCF0900D9CC4A /* RefugeesWelcome */ = {
 			isa = PBXGroup;
 			children = (
-				54E900341BDBE55200FCA19A /* src */,
-				95B7F9C71BDBCF0900D9CC4A /* AppDelegate.swift */,
 				95B7F9DC1BDBD06200D9CC4A /* Controller */,
 				95B7F9DB1BDBD05100D9CC4A /* View */,
+				9576224C1BDBE5DC001D2179 /* src */,
+				95B7F9C71BDBCF0900D9CC4A /* AppDelegate.swift */,
 				95B7F9CE1BDBCF0900D9CC4A /* Assets.xcassets */,
+				95F6C15F1BDBE6B600407682 /* BridgingHeader.h */,
 				95B7F9D31BDBCF0900D9CC4A /* Info.plist */,
 			);
 			path = RefugeesWelcome;
@@ -145,9 +115,9 @@
 		95B7F9DB1BDBD05100D9CC4A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				95B7F9E11BDBD87A00D9CC4A /* TranslationTableViewCell.swift */,
 				54EB58D91BDBDEA700837401 /* Launch Screen.xib */,
 				95B7F9CB1BDBCF0900D9CC4A /* Main.storyboard */,
+				95B7F9E11BDBD87A00D9CC4A /* TranslationTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -240,10 +210,7 @@
 				54E900451BDBE6FD00FCA19A /* basic.json in Resources */,
 				54E900491BDBE6FD00FCA19A /* direction.json in Resources */,
 				95B7F9CD1BDBCF0900D9CC4A /* Main.storyboard in Resources */,
-				54E9004D1BDBE6FD00FCA19A /* nature.json in Resources */,
-				54E9004E1BDBE6FD00FCA19A /* profession.json in Resources */,
-				54E900461BDBE6FD00FCA19A /* children.json in Resources */,
-				54E900471BDBE6FD00FCA19A /* clothing.json in Resources */,
+				9576224E1BDBE631001D2179 /* authorities.json in Resources */,
 				54EB58DA1BDBDEA700837401 /* Launch Screen.xib in Resources */,
 				54E900441BDBE6FD00FCA19A /* basic_adjectives.json in Resources */,
 				54E900481BDBE6FD00FCA19A /* colours.json in Resources */,
@@ -420,6 +387,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "de.germany-says-welcome.RefugeesWelcome";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = RefugeesWelcome/BridgingHeader.h;
 			};
 			name = Debug;
 		};
@@ -433,6 +401,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "de.germany-says-welcome.RefugeesWelcome";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = RefugeesWelcome/BridgingHeader.h;
 			};
 			name = Release;
 		};
