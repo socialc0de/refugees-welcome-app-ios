@@ -7,22 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		54EB58DA1BDBDEA700837401 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54EB58D91BDBDEA700837401 /* Launch Screen.xib */; };
 		95B7F9C81BDBCF0900D9CC4A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B7F9C71BDBCF0900D9CC4A /* AppDelegate.swift */; };
 		95B7F9CD1BDBCF0900D9CC4A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95B7F9CB1BDBCF0900D9CC4A /* Main.storyboard */; };
 		95B7F9CF1BDBCF0900D9CC4A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95B7F9CE1BDBCF0900D9CC4A /* Assets.xcassets */; };
-		95B7F9D21BDBCF0900D9CC4A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95B7F9D01BDBCF0900D9CC4A /* LaunchScreen.storyboard */; };
-		95B7F9DA1BDBD04900D9CC4A /* PhrasebookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B7F9D91BDBD04900D9CC4A /* PhrasebookViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		95B7F9DE1BDBD08600D9CC4A /* FAQViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B7F9DD1BDBD08600D9CC4A /* FAQViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		95B7F9E01BDBD09100D9CC4A /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B7F9DF1BDBD09100D9CC4A /* MapViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		95B7F9E21BDBD87A00D9CC4A /* TranslationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B7F9E11BDBD87A00D9CC4A /* TranslationTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
+		95B7F9DA1BDBD04900D9CC4A /* PhrasebookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B7F9D91BDBD04900D9CC4A /* PhrasebookViewController.swift */; };
+		95B7F9DE1BDBD08600D9CC4A /* FAQViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B7F9DD1BDBD08600D9CC4A /* FAQViewController.swift */; };
+		95B7F9E01BDBD09100D9CC4A /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B7F9DF1BDBD09100D9CC4A /* MapViewController.swift */; };
+		95B7F9E21BDBD87A00D9CC4A /* TranslationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B7F9E11BDBD87A00D9CC4A /* TranslationTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		54EB58D91BDBDEA700837401 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "Launch Screen.xib"; path = "../../Launch Screen.xib"; sourceTree = "<group>"; };
 		95B7F9C41BDBCF0900D9CC4A /* RefugeesWelcome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RefugeesWelcome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95B7F9C71BDBCF0900D9CC4A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95B7F9CC1BDBCF0900D9CC4A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		95B7F9CE1BDBCF0900D9CC4A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		95B7F9D11BDBCF0900D9CC4A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		95B7F9D31BDBCF0900D9CC4A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		95B7F9D91BDBD04900D9CC4A /* PhrasebookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhrasebookViewController.swift; sourceTree = "<group>"; };
 		95B7F9DD1BDBD08600D9CC4A /* FAQViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FAQViewController.swift; sourceTree = "<group>"; };
@@ -73,7 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				95B7F9E11BDBD87A00D9CC4A /* TranslationTableViewCell.swift */,
-				95B7F9D01BDBCF0900D9CC4A /* LaunchScreen.storyboard */,
+				54EB58D91BDBDEA700837401 /* Launch Screen.xib */,
 				95B7F9CB1BDBCF0900D9CC4A /* Main.storyboard */,
 			);
 			path = View;
@@ -146,9 +146,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				95B7F9D21BDBCF0900D9CC4A /* LaunchScreen.storyboard in Resources */,
 				95B7F9CF1BDBCF0900D9CC4A /* Assets.xcassets in Resources */,
 				95B7F9CD1BDBCF0900D9CC4A /* Main.storyboard in Resources */,
+				54EB58DA1BDBDEA700837401 /* Launch Screen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,15 +176,6 @@
 				95B7F9CC1BDBCF0900D9CC4A /* Base */,
 			);
 			name = Main.storyboard;
-			path = .;
-			sourceTree = "<group>";
-		};
-		95B7F9D01BDBCF0900D9CC4A /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				95B7F9D11BDBCF0900D9CC4A /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			path = .;
 			sourceTree = "<group>";
 		};
@@ -277,6 +268,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = RefugeesWelcome/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "de.germany-says-welcome.RefugeesWelcome";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -288,6 +280,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = RefugeesWelcome/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "de.germany-says-welcome.RefugeesWelcome";
 				PRODUCT_NAME = "$(TARGET_NAME)";
