@@ -7,29 +7,52 @@
 //
 
 import UIKit
+import MapKit
+import SwiftyJSON
 
 class MapViewController: UIViewController {
-
+    
+    @IBOutlet weak var mapView: MKMapView!
+    var coordinates = [String]()
+    var currentRow = [String]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        self.loadJSONDataFromFile()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func loadJSONDataFromFile() {
+        if let path = NSBundle.mainBundle().pathForResource("authorities", ofType: "json") {
+            let fileContent: NSString?
+            do {
+                fileContent = try NSString(contentsOfFile: path, encoding: NSUTF8StringEncoding)
+            } catch _ {
+                fileContent = nil
+            }
+            
+            if let content = fileContent {
+                if let dataFromString = content.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false) {
+                    if let json = JSON(data: dataFromString).array {
+                        for jsonElem in json {
+                            let lat = jsonElem["location"]["lat"].stringValue
+                            let lng = jsonElem["location"]["lng"].stringValue
+                            
+                            print("LAT: \(lat), LNG: \(lng)")
+                            
+                            let latitude = (lat as NSString).doubleValue
+                            let longitude = (lng as NSString).doubleValue
+                            
+                            //let coordination = CLLocation(latitude: (lat as NSString).doubleValue, longitude: (lng as NSString).doubleValue)
+                            let annotation = MKPointAnnotation()
+                            annotation.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+                            annotation.title = "Hallo"
+                            mapView.addAnnotation(annotation)
+                        }
+                    }
+                }
+            } else {
+                print("Schade")
+            }
+        }
     }
-    */
-
 }

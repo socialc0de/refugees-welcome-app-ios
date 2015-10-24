@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		272F2126CCFCD3EABE99820A /* Pods_RefugeesWelcome.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B7405B17B222E456B506B58 /* Pods_RefugeesWelcome.framework */; };
 		54EB58DA1BDBDEA700837401 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54EB58D91BDBDEA700837401 /* Launch Screen.xib */; };
+		9576224E1BDBE631001D2179 /* authorities.json in Resources */ = {isa = PBXBuildFile; fileRef = 9576224D1BDBE631001D2179 /* authorities.json */; settings = {ASSET_TAGS = (); }; };
 		95B7F9C81BDBCF0900D9CC4A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B7F9C71BDBCF0900D9CC4A /* AppDelegate.swift */; };
 		95B7F9CD1BDBCF0900D9CC4A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95B7F9CB1BDBCF0900D9CC4A /* Main.storyboard */; };
 		95B7F9CF1BDBCF0900D9CC4A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95B7F9CE1BDBCF0900D9CC4A /* Assets.xcassets */; };
@@ -20,7 +21,8 @@
 
 /* Begin PBXFileReference section */
 		0B7405B17B222E456B506B58 /* Pods_RefugeesWelcome.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RefugeesWelcome.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		54EB58D91BDBDEA700837401 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "Launch Screen.xib"; path = "../../Launch Screen.xib"; sourceTree = "<group>"; };
+		54EB58D91BDBDEA700837401 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
+		9576224D1BDBE631001D2179 /* authorities.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = authorities.json; sourceTree = "<group>"; };
 		95B7F9C41BDBCF0900D9CC4A /* RefugeesWelcome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RefugeesWelcome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95B7F9C71BDBCF0900D9CC4A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95B7F9CC1BDBCF0900D9CC4A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -30,6 +32,7 @@
 		95B7F9DD1BDBD08600D9CC4A /* FAQViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FAQViewController.swift; sourceTree = "<group>"; };
 		95B7F9DF1BDBD09100D9CC4A /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		95B7F9E11BDBD87A00D9CC4A /* TranslationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranslationTableViewCell.swift; sourceTree = "<group>"; };
+		95F6C15F1BDBE6B600407682 /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
 		AF4E97C0A213186BF7335FDD /* Pods-RefugeesWelcome.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RefugeesWelcome.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RefugeesWelcome/Pods-RefugeesWelcome.debug.xcconfig"; sourceTree = "<group>"; };
 		DC58D4DDA1AA60327DDD08A1 /* Pods-RefugeesWelcome.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RefugeesWelcome.release.xcconfig"; path = "Pods/Target Support Files/Pods-RefugeesWelcome/Pods-RefugeesWelcome.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -55,13 +58,21 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		9576224C1BDBE5DC001D2179 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				9576224D1BDBE631001D2179 /* authorities.json */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
 		95B7F9BB1BDBCF0800D9CC4A = {
 			isa = PBXGroup;
 			children = (
+				D36322A50B775A4746261EDF /* Frameworks */,
+				20D2539F3AACACCF34851953 /* Pods */,
 				95B7F9C51BDBCF0900D9CC4A /* Products */,
 				95B7F9C61BDBCF0900D9CC4A /* RefugeesWelcome */,
-				20D2539F3AACACCF34851953 /* Pods */,
-				D36322A50B775A4746261EDF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -76,10 +87,12 @@
 		95B7F9C61BDBCF0900D9CC4A /* RefugeesWelcome */ = {
 			isa = PBXGroup;
 			children = (
-				95B7F9C71BDBCF0900D9CC4A /* AppDelegate.swift */,
 				95B7F9DC1BDBD06200D9CC4A /* Controller */,
 				95B7F9DB1BDBD05100D9CC4A /* View */,
+				9576224C1BDBE5DC001D2179 /* src */,
+				95B7F9C71BDBCF0900D9CC4A /* AppDelegate.swift */,
 				95B7F9CE1BDBCF0900D9CC4A /* Assets.xcassets */,
+				95F6C15F1BDBE6B600407682 /* BridgingHeader.h */,
 				95B7F9D31BDBCF0900D9CC4A /* Info.plist */,
 			);
 			path = RefugeesWelcome;
@@ -88,9 +101,9 @@
 		95B7F9DB1BDBD05100D9CC4A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				95B7F9E11BDBD87A00D9CC4A /* TranslationTableViewCell.swift */,
 				54EB58D91BDBDEA700837401 /* Launch Screen.xib */,
 				95B7F9CB1BDBCF0900D9CC4A /* Main.storyboard */,
+				95B7F9E11BDBD87A00D9CC4A /* TranslationTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -175,6 +188,7 @@
 			files = (
 				95B7F9CF1BDBCF0900D9CC4A /* Assets.xcassets in Resources */,
 				95B7F9CD1BDBCF0900D9CC4A /* Main.storyboard in Resources */,
+				9576224E1BDBE631001D2179 /* authorities.json in Resources */,
 				54EB58DA1BDBDEA700837401 /* Launch Screen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -293,7 +307,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -331,7 +345,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -344,10 +358,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = RefugeesWelcome/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "de.germany-says-welcome.RefugeesWelcome";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = RefugeesWelcome/BridgingHeader.h;
 			};
 			name = Debug;
 		};
@@ -357,10 +372,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = RefugeesWelcome/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "de.germany-says-welcome.RefugeesWelcome";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = RefugeesWelcome/BridgingHeader.h;
 			};
 			name = Release;
 		};
