@@ -29,19 +29,9 @@ class PhrasebookViewController: UIViewController, UITableViewDataSource, UITable
         translationTable.dataSource = self
         translationTable.delegate = self
         
-        
-        Alamofire.request(.GET, "http://pajowu.de:8080/phrasebook/all")
-            .response {
-                (_, response, data, error) in
-                if (error != nil) {
-                    print(error)
-                } else {
-                    if let jsonData = data {
-                        let data = JSON(data: jsonData)
-                        self.phrases = data["phrases"].arrayValue
-                        self.translationTable.reloadData()
-                    }
-                }
+        RequestHelper.loadDataFromUrl("http://pajowu.de:8080/phrasebook/all") { (jsonData) -> Void in
+            self.phrases = jsonData["phrases"].arrayValue
+            self.translationTable.reloadData()
         }
     }
     
