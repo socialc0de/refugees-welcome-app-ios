@@ -8,6 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		272F2126CCFCD3EABE99820A /* Pods_RefugeesWelcome.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B7405B17B222E456B506B58 /* Pods_RefugeesWelcome.framework */; };
+		54E900431BDBE6FD00FCA19A /* animals.json in Resources */ = {isa = PBXBuildFile; fileRef = 54E900361BDBE6FD00FCA19A /* animals.json */; };
+		54E900441BDBE6FD00FCA19A /* basic_adjectives.json in Resources */ = {isa = PBXBuildFile; fileRef = 54E900371BDBE6FD00FCA19A /* basic_adjectives.json */; };
+		54E900451BDBE6FD00FCA19A /* basic.json in Resources */ = {isa = PBXBuildFile; fileRef = 54E900381BDBE6FD00FCA19A /* basic.json */; };
+		54E900461BDBE6FD00FCA19A /* children.json in Resources */ = {isa = PBXBuildFile; fileRef = 54E900391BDBE6FD00FCA19A /* children.json */; };
+		54E900471BDBE6FD00FCA19A /* clothing.json in Resources */ = {isa = PBXBuildFile; fileRef = 54E9003A1BDBE6FD00FCA19A /* clothing.json */; };
+		54E900481BDBE6FD00FCA19A /* colours.json in Resources */ = {isa = PBXBuildFile; fileRef = 54E9003B1BDBE6FD00FCA19A /* colours.json */; };
+		54E900491BDBE6FD00FCA19A /* direction.json in Resources */ = {isa = PBXBuildFile; fileRef = 54E9003C1BDBE6FD00FCA19A /* direction.json */; };
+		54E9004A1BDBE6FD00FCA19A /* food.json in Resources */ = {isa = PBXBuildFile; fileRef = 54E9003D1BDBE6FD00FCA19A /* food.json */; };
+		54E9004B1BDBE6FD00FCA19A /* medical.json in Resources */ = {isa = PBXBuildFile; fileRef = 54E9003E1BDBE6FD00FCA19A /* medical.json */; };
+		54E9004C1BDBE6FD00FCA19A /* misc.json in Resources */ = {isa = PBXBuildFile; fileRef = 54E9003F1BDBE6FD00FCA19A /* misc.json */; };
+		54E9004D1BDBE6FD00FCA19A /* nature.json in Resources */ = {isa = PBXBuildFile; fileRef = 54E900401BDBE6FD00FCA19A /* nature.json */; };
+		54E9004E1BDBE6FD00FCA19A /* profession.json in Resources */ = {isa = PBXBuildFile; fileRef = 54E900411BDBE6FD00FCA19A /* profession.json */; };
+		54E9004F1BDBE6FD00FCA19A /* sexual.json in Resources */ = {isa = PBXBuildFile; fileRef = 54E900421BDBE6FD00FCA19A /* sexual.json */; };
+		54E900571BDBEB2500FCA19A /* blubTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E900561BDBEB2500FCA19A /* blubTableViewController.swift */; };
 		54EB58DA1BDBDEA700837401 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54EB58D91BDBDEA700837401 /* Launch Screen.xib */; };
 		95B7F9C81BDBCF0900D9CC4A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B7F9C71BDBCF0900D9CC4A /* AppDelegate.swift */; };
 		95B7F9CD1BDBCF0900D9CC4A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95B7F9CB1BDBCF0900D9CC4A /* Main.storyboard */; };
@@ -20,6 +34,20 @@
 
 /* Begin PBXFileReference section */
 		0B7405B17B222E456B506B58 /* Pods_RefugeesWelcome.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RefugeesWelcome.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		54E900361BDBE6FD00FCA19A /* animals.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = animals.json; path = src/phrases/animals.json; sourceTree = "<group>"; };
+		54E900371BDBE6FD00FCA19A /* basic_adjectives.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = basic_adjectives.json; path = src/phrases/basic_adjectives.json; sourceTree = "<group>"; };
+		54E900381BDBE6FD00FCA19A /* basic.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = basic.json; path = src/phrases/basic.json; sourceTree = "<group>"; };
+		54E900391BDBE6FD00FCA19A /* children.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = children.json; path = src/phrases/children.json; sourceTree = "<group>"; };
+		54E9003A1BDBE6FD00FCA19A /* clothing.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = clothing.json; path = src/phrases/clothing.json; sourceTree = "<group>"; };
+		54E9003B1BDBE6FD00FCA19A /* colours.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = colours.json; path = src/phrases/colours.json; sourceTree = "<group>"; };
+		54E9003C1BDBE6FD00FCA19A /* direction.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = direction.json; path = src/phrases/direction.json; sourceTree = "<group>"; };
+		54E9003D1BDBE6FD00FCA19A /* food.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = food.json; path = src/phrases/food.json; sourceTree = "<group>"; };
+		54E9003E1BDBE6FD00FCA19A /* medical.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = medical.json; path = src/phrases/medical.json; sourceTree = "<group>"; };
+		54E9003F1BDBE6FD00FCA19A /* misc.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = misc.json; path = src/phrases/misc.json; sourceTree = "<group>"; };
+		54E900401BDBE6FD00FCA19A /* nature.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = nature.json; path = src/phrases/nature.json; sourceTree = "<group>"; };
+		54E900411BDBE6FD00FCA19A /* profession.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = profession.json; path = src/phrases/profession.json; sourceTree = "<group>"; };
+		54E900421BDBE6FD00FCA19A /* sexual.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = sexual.json; path = src/phrases/sexual.json; sourceTree = "<group>"; };
+		54E900561BDBEB2500FCA19A /* blubTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = blubTableViewController.swift; sourceTree = "<group>"; };
 		54EB58D91BDBDEA700837401 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "Launch Screen.xib"; path = "../../Launch Screen.xib"; sourceTree = "<group>"; };
 		95B7F9C41BDBCF0900D9CC4A /* RefugeesWelcome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RefugeesWelcome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95B7F9C71BDBCF0900D9CC4A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -55,6 +83,34 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		54E900341BDBE55200FCA19A /* src */ = {
+			isa = PBXGroup;
+			children = (
+				54E900351BDBE55B00FCA19A /* phrases */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
+		54E900351BDBE55B00FCA19A /* phrases */ = {
+			isa = PBXGroup;
+			children = (
+				54E900361BDBE6FD00FCA19A /* animals.json */,
+				54E900371BDBE6FD00FCA19A /* basic_adjectives.json */,
+				54E900381BDBE6FD00FCA19A /* basic.json */,
+				54E900391BDBE6FD00FCA19A /* children.json */,
+				54E9003A1BDBE6FD00FCA19A /* clothing.json */,
+				54E9003B1BDBE6FD00FCA19A /* colours.json */,
+				54E9003C1BDBE6FD00FCA19A /* direction.json */,
+				54E9003D1BDBE6FD00FCA19A /* food.json */,
+				54E9003E1BDBE6FD00FCA19A /* medical.json */,
+				54E9003F1BDBE6FD00FCA19A /* misc.json */,
+				54E900401BDBE6FD00FCA19A /* nature.json */,
+				54E900411BDBE6FD00FCA19A /* profession.json */,
+				54E900421BDBE6FD00FCA19A /* sexual.json */,
+			);
+			name = phrases;
+			sourceTree = "<group>";
+		};
 		95B7F9BB1BDBCF0800D9CC4A = {
 			isa = PBXGroup;
 			children = (
@@ -76,6 +132,7 @@
 		95B7F9C61BDBCF0900D9CC4A /* RefugeesWelcome */ = {
 			isa = PBXGroup;
 			children = (
+				54E900341BDBE55200FCA19A /* src */,
 				95B7F9C71BDBCF0900D9CC4A /* AppDelegate.swift */,
 				95B7F9DC1BDBD06200D9CC4A /* Controller */,
 				95B7F9DB1BDBD05100D9CC4A /* View */,
@@ -101,6 +158,7 @@
 				95B7F9DD1BDBD08600D9CC4A /* FAQViewController.swift */,
 				95B7F9DF1BDBD09100D9CC4A /* MapViewController.swift */,
 				95B7F9D91BDBD04900D9CC4A /* PhrasebookViewController.swift */,
+				54E900561BDBEB2500FCA19A /* blubTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -173,9 +231,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54E9004A1BDBE6FD00FCA19A /* food.json in Resources */,
+				54E9004C1BDBE6FD00FCA19A /* misc.json in Resources */,
 				95B7F9CF1BDBCF0900D9CC4A /* Assets.xcassets in Resources */,
+				54E900431BDBE6FD00FCA19A /* animals.json in Resources */,
+				54E9004B1BDBE6FD00FCA19A /* medical.json in Resources */,
+				54E9004F1BDBE6FD00FCA19A /* sexual.json in Resources */,
+				54E900451BDBE6FD00FCA19A /* basic.json in Resources */,
+				54E900491BDBE6FD00FCA19A /* direction.json in Resources */,
 				95B7F9CD1BDBCF0900D9CC4A /* Main.storyboard in Resources */,
+				54E9004D1BDBE6FD00FCA19A /* nature.json in Resources */,
+				54E9004E1BDBE6FD00FCA19A /* profession.json in Resources */,
+				54E900461BDBE6FD00FCA19A /* children.json in Resources */,
+				54E900471BDBE6FD00FCA19A /* clothing.json in Resources */,
 				54EB58DA1BDBDEA700837401 /* Launch Screen.xib in Resources */,
+				54E900441BDBE6FD00FCA19A /* basic_adjectives.json in Resources */,
+				54E900481BDBE6FD00FCA19A /* colours.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,6 +307,7 @@
 			files = (
 				95B7F9E21BDBD87A00D9CC4A /* TranslationTableViewCell.swift in Sources */,
 				95B7F9DE1BDBD08600D9CC4A /* FAQViewController.swift in Sources */,
+				54E900571BDBEB2500FCA19A /* blubTableViewController.swift in Sources */,
 				95B7F9DA1BDBD04900D9CC4A /* PhrasebookViewController.swift in Sources */,
 				95B7F9C81BDBCF0900D9CC4A /* AppDelegate.swift in Sources */,
 				95B7F9E01BDBD09100D9CC4A /* MapViewController.swift in Sources */,
@@ -293,7 +365,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -331,7 +403,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -344,7 +416,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = RefugeesWelcome/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "de.germany-says-welcome.RefugeesWelcome";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -357,7 +429,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = RefugeesWelcome/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "de.germany-says-welcome.RefugeesWelcome";
 				PRODUCT_NAME = "$(TARGET_NAME)";
