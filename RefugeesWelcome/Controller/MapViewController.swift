@@ -14,13 +14,40 @@ import CCHMapClusterController
 class MapViewController: UIViewController {
     
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var modeBtn: UIBarButtonItem!
     
     var mapClusterController: CCHMapClusterController?
     var locationManager: CLLocationManager?
+    enum ClusterType {
+        case Wifi, Authorities
+    }
+    
+    var currentMode = ClusterType.Authorities
+    
+    
+    @IBAction func modeBtnPressed(sender: UIBarButtonItem) {
+        currentMode = (currentMode == .Wifi) ? .Authorities : .Wifi
+        print("new mode is \(currentMode)")
+        setUpClusterer()
+    }
+    
+    @IBAction func positionBtnPressed() {
+        if let userLocation:CLLocation = locationManager?.location {
+            let center = CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
+            let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+            
+            self.mapView.setRegion(region, animated: true)
+        }
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setUpMap()
+        setUpClusterer()
+    }
+    
+    func setUpMap() {
         mapView.delegate = self
         
         locationManager = CLLocationManager()
@@ -30,8 +57,16 @@ class MapViewController: UIViewController {
         mapClusterController = CCHMapClusterController(mapView: self.mapView)
         mapClusterController?.delegate = self
         
+        //zoom to user location
+        positionBtnPressed()
+    }
+    
+    func loadAnnotations(type: ClusterType) {
         var annotations = [MKPointAnnotation]()
-        RequestHelper.loadDataFromUrl("http://pajowu.de:8080/poi/wifi") { (jsonData) -> Void in
+        var url = "http://pajowu.de:8080/poi/"
+        url += type == .Wifi ? "wifi" : "authorities"
+        
+        RequestHelper.loadDataFromUrl(url) { (jsonData) -> Void in
             let mapItems = jsonData["items"].arrayValue
             
             for jsonElem in mapItems {
@@ -45,6 +80,12 @@ class MapViewController: UIViewController {
             }
             self.mapClusterController?.addAnnotations(annotations, withCompletionHandler: nil)
         }
+    }
+    
+    func setUpClusterer() {
+        let annotationsToRemove = mapClusterController!.annotations
+        mapClusterController?.removeAnnotations(Array(annotationsToRemove), withCompletionHandler: nil)
+        loadAnnotations(currentMode)
     }
 }
 
@@ -62,7 +103,6 @@ extension MapViewController: CLLocationManagerDelegate {
 }
 
 extension MapViewController: MKMapViewDelegate {
-    
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
         if let annotation = annotation as? CCHMapClusterAnnotation {
             let identifier = "clusterAnnotation"
@@ -85,15 +125,7 @@ extension MapViewController: MKMapViewDelegate {
 }
 
 extension MapViewController: CCHMapClusterControllerDelegate {
-    
     func mapClusterController(mapClusterController: CCHMapClusterController!, titleForMapClusterAnnotation mapClusterAnnotation: CCHMapClusterAnnotation!) -> String! {
         return "\(mapClusterAnnotation.annotations.count) Items"
     }
-
-    func mapClusterController(mapClusterController: CCHMapClusterController!, willReuseMapClusterAnnotation mapClusterAnnotation: CCHMapClusterAnnotation!) {
-        let pinView = mapClusterController.mapView.viewForAnnotation(mapClusterAnnotation) as! PinClusterView
-        pinView.count = mapClusterAnnotation.annotations.count
-        pinView.oneLocation = mapClusterAnnotation.isUniqueLocation()
-    }
-    
 }

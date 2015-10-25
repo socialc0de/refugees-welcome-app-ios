@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ML8-0Z-2gg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ML8-0Z-2gg">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -37,6 +37,7 @@
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HpC-Rc-fPy">
                                         <rect key="frame" x="0.0" y="50" width="414" height="30"/>
+                                        <animations/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                 </subviews>
@@ -233,13 +234,32 @@
                                 <rect key="frame" x="0.0" y="64" width="414" height="623"/>
                                 <animations/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2BS-v5-cXw">
+                                <rect key="frame" x="364" y="79" width="30" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Ich"/>
+                                <connections>
+                                    <action selector="positionBtnPressed" destination="xez-iw-jfu" eventType="touchUpInside" id="qDw-FE-2AV"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2BS-v5-cXw" firstAttribute="trailing" secondItem="EfQ-kf-LSv" secondAttribute="trailingMargin" id="1BG-Dh-BHL"/>
+                            <constraint firstItem="2BS-v5-cXw" firstAttribute="top" secondItem="ITg-iv-k0X" secondAttribute="bottom" constant="15" id="mgr-SE-GB2"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Map" id="J1m-8J-j7T"/>
+                    <navigationItem key="navigationItem" title="Map" id="J1m-8J-j7T">
+                        <barButtonItem key="rightBarButtonItem" title="Swap" id="Anj-us-x4C">
+                            <connections>
+                                <action selector="modeBtnPressed:" destination="xez-iw-jfu" id="wgr-55-sJz"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="9zk-1j-jdb" id="dyR-8T-Rzd"/>
+                        <outlet property="modeBtn" destination="Anj-us-x4C" id="xQs-36-2FL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i1X-nS-bNi" userLabel="First Responder" sceneMemberID="firstResponder"/>
