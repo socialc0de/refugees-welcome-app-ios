@@ -54,6 +54,7 @@ class PhrasebookViewController: UIViewController, UITableViewDataSource, UITable
         RequestHelper.loadDataFromUrl("http://pajowu.de:8080/phrasebook/all") { (jsonData) -> Void in
             self.phrasebook.phrases = jsonData["phrases"]
             self.buildOrUpdatePhraseList()
+            self.phrasebook.save()
         }
         
         self.buildOrUpdatePhraseList()
