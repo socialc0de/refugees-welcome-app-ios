@@ -27,6 +27,7 @@
 		95B7F9DE1BDBD08600D9CC4A /* FAQViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B7F9DD1BDBD08600D9CC4A /* FAQViewController.swift */; };
 		95B7F9E01BDBD09100D9CC4A /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B7F9DF1BDBD09100D9CC4A /* MapViewController.swift */; };
 		95B7F9E21BDBD87A00D9CC4A /* TranslationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B7F9E11BDBD87A00D9CC4A /* TranslationTableViewCell.swift */; };
+		95F9AA331BDC2C6000274199 /* PinClusterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F9AA321BDC2C6000274199 /* PinClusterView.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		95B7F9DF1BDBD09100D9CC4A /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		95B7F9E11BDBD87A00D9CC4A /* TranslationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranslationTableViewCell.swift; sourceTree = "<group>"; };
 		95F6C15F1BDBE6B600407682 /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
+		95F9AA321BDC2C6000274199 /* PinClusterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinClusterView.swift; sourceTree = "<group>"; };
 		AF4E97C0A213186BF7335FDD /* Pods-RefugeesWelcome.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RefugeesWelcome.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RefugeesWelcome/Pods-RefugeesWelcome.debug.xcconfig"; sourceTree = "<group>"; };
 		DC58D4DDA1AA60327DDD08A1 /* Pods-RefugeesWelcome.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RefugeesWelcome.release.xcconfig"; path = "Pods/Target Support Files/Pods-RefugeesWelcome/Pods-RefugeesWelcome.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -79,10 +81,10 @@
 		95B7F9BB1BDBCF0800D9CC4A = {
 			isa = PBXGroup;
 			children = (
+				95B7F9C61BDBCF0900D9CC4A /* RefugeesWelcome */,
 				D36322A50B775A4746261EDF /* Frameworks */,
 				20D2539F3AACACCF34851953 /* Pods */,
 				95B7F9C51BDBCF0900D9CC4A /* Products */,
-				95B7F9C61BDBCF0900D9CC4A /* RefugeesWelcome */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,10 +99,10 @@
 		95B7F9C61BDBCF0900D9CC4A /* RefugeesWelcome */ = {
 			isa = PBXGroup;
 			children = (
+				95B7F9C71BDBCF0900D9CC4A /* AppDelegate.swift */,
+				95B7F9DB1BDBD05100D9CC4A /* View */,
 				95B7F9DC1BDBD06200D9CC4A /* Controller */,
 				954D25BA1BDBFFD000DCAEE8 /* Utils */,
-				95B7F9DB1BDBD05100D9CC4A /* View */,
-				95B7F9C71BDBCF0900D9CC4A /* AppDelegate.swift */,
 				95B7F9CE1BDBCF0900D9CC4A /* Assets.xcassets */,
 				95F6C15F1BDBE6B600407682 /* BridgingHeader.h */,
 				95B7F9D31BDBCF0900D9CC4A /* Info.plist */,
@@ -114,6 +116,7 @@
 				54EB58D91BDBDEA700837401 /* Launch Screen.xib */,
 				95B7F9CB1BDBCF0900D9CC4A /* Main.storyboard */,
 				95B7F9E11BDBD87A00D9CC4A /* TranslationTableViewCell.swift */,
+				95F9AA321BDC2C6000274199 /* PinClusterView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 				95B7F9DA1BDBD04900D9CC4A /* PhrasebookViewController.swift in Sources */,
 				95B7F9C81BDBCF0900D9CC4A /* AppDelegate.swift in Sources */,
 				95B7F9E01BDBD09100D9CC4A /* MapViewController.swift in Sources */,
+				95F9AA331BDC2C6000274199 /* PinClusterView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

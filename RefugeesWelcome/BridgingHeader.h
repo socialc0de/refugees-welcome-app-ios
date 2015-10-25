@@ -9,4 +9,6 @@
 #ifndef BridgingHeader_h
 #define BridgingHeader_h
 
+#import <CCHMapClusterController/CCHMapClusterController.h>
+
 #endif /* BridgingHeader_h */
