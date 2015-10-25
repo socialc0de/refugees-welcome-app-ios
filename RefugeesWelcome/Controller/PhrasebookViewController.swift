@@ -25,7 +25,8 @@ class PhrasebookViewController: UIViewController, UITableViewDataSource, UITable
     
     var firstLanguage = "Arabic / Syrian"
     var targetLanguage = "German"
-    var cleanPhrases = [(firstLanguagePhrase: String, targetLanguagePhrase: String)]()
+    var sortedPhrases = [[(firstLanguagePhrase: String, targetLanguagePhrase: String)]]()
+    var sectionNames = [String]()
     
     
     override func viewDidLoad() {
@@ -84,18 +85,30 @@ class PhrasebookViewController: UIViewController, UITableViewDataSource, UITable
     // MARK: Table View
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
+        return sortedPhrases.count
+    }
+    
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return sectionNames[section]
+    }
+    
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 25
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cleanPhrases.count
+        return sortedPhrases[section].count
+    }
+    
+    func sectionIndexTitlesForTableView(tableView: UITableView) -> [String]? {
+        return sectionNames
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(translationCellIdentifier, forIndexPath: indexPath) as! TranslationTableViewCell
         
-        cell.firstLanguageLabel.text = cleanPhrases[indexPath.row].firstLanguagePhrase
-        cell.targetLanguageLabel.text = cleanPhrases[indexPath.row].targetLanguagePhrase
+        cell.firstLanguageLabel.text = sortedPhrases[indexPath.section][indexPath.row].firstLanguagePhrase
+        cell.targetLanguageLabel.text = sortedPhrases[indexPath.section][indexPath.row].targetLanguagePhrase
         
         if rightAligedLanguages.contains(firstLanguage) {
             cell.firstLanguageLabel.textAlignment = .Right
@@ -140,8 +153,12 @@ class PhrasebookViewController: UIViewController, UITableViewDataSource, UITable
     // MARK: helper
     
     func buildOrUpdatePhraseList() {
-        cleanPhrases.removeAll()
+        sortedPhrases.removeAll()
+        sectionNames.removeAll()
+
+        var cleanPhrases = [(firstLanguagePhrase: String, targetLanguagePhrase: String)]()
         
+        // clean phrases
         for phraseSet in phrases {
             var firstLanguagePhrase = phraseSet[firstLanguage].stringValue.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
             var targetLanguagePhrase = phraseSet[targetLanguage].stringValue.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
@@ -155,6 +172,23 @@ class PhrasebookViewController: UIViewController, UITableViewDataSource, UITable
         }
         
         cleanPhrases = cleanPhrases.sort({ $0.firstLanguagePhrase < $1.firstLanguagePhrase })
+        
+        // build sections
+        var section: Character?
+        var index = -1
+        for phraseSet in cleanPhrases {
+
+            let indexLetter = phraseSet.firstLanguagePhrase.uppercaseString[phraseSet.firstLanguagePhrase.startIndex]
+
+            if indexLetter != section {
+                section = indexLetter
+                index += 1
+                sectionNames.append(String(section!))
+                sortedPhrases.append([(firstLanguagePhrase: String, targetLanguagePhrase: String)]())
+            }
+            
+            sortedPhrases[index].append((firstLanguagePhrase: phraseSet.firstLanguagePhrase, targetLanguagePhrase: phraseSet.targetLanguagePhrase))
+        }
         
         translationTable.reloadData()
     }

@@ -15,19 +15,20 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rxw-dm-OSO">
-                                <rect key="frame" x="0.0" y="64" width="414" height="80"/>
+                                <rect key="frame" x="0.0" y="-20" width="414" height="100"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D78-gW-Yfa">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                                         <animations/>
                                         <color key="backgroundColor" red="0.12156862745098039" green="0.27843137254901962" blue="0.53333333333333333" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="Avt-T2-Qso"/>
+                                            <constraint firstAttribute="height" constant="44" id="Avt-T2-Qso"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="LANG A → LANG B">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
@@ -36,31 +37,31 @@
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HpC-Rc-fPy">
-                                        <rect key="frame" x="0.0" y="50" width="414" height="30"/>
+                                        <rect key="frame" x="0.0" y="64" width="414" height="36"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                 </subviews>
                                 <animations/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.1215686275" green="0.2784313725" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="HpC-Rc-fPy" firstAttribute="top" secondItem="D78-gW-Yfa" secondAttribute="bottom" id="4UK-7g-Nzy"/>
                                     <constraint firstAttribute="trailing" secondItem="D78-gW-Yfa" secondAttribute="trailing" id="7Z2-zP-z8Z"/>
                                     <constraint firstItem="D78-gW-Yfa" firstAttribute="leading" secondItem="Rxw-dm-OSO" secondAttribute="leading" id="JXg-zJ-XD6"/>
-                                    <constraint firstItem="D78-gW-Yfa" firstAttribute="top" secondItem="Rxw-dm-OSO" secondAttribute="top" id="Onc-zG-7WG"/>
+                                    <constraint firstItem="D78-gW-Yfa" firstAttribute="top" secondItem="Rxw-dm-OSO" secondAttribute="top" constant="20" id="Onc-zG-7WG"/>
                                     <constraint firstAttribute="trailing" secondItem="HpC-Rc-fPy" secondAttribute="trailing" id="QsH-14-JXv"/>
                                     <constraint firstAttribute="bottom" secondItem="HpC-Rc-fPy" secondAttribute="bottom" id="m1d-0Y-bLx"/>
-                                    <constraint firstAttribute="height" constant="80" id="sEd-uT-eTw"/>
+                                    <constraint firstAttribute="height" constant="100" id="sEd-uT-eTw"/>
                                     <constraint firstItem="HpC-Rc-fPy" firstAttribute="leading" secondItem="Rxw-dm-OSO" secondAttribute="leading" id="zlJ-Zn-s2A"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4GU-5S-NZ9">
-                                <rect key="frame" x="0.0" y="144" width="414" height="543"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="60" sectionHeaderHeight="20" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="4GU-5S-NZ9">
+                                <rect key="frame" x="0.0" y="80" width="414" height="543"/>
                                 <animations/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <inset key="separatorInset" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="translationCell" rowHeight="60" id="kXA-ab-1T4" customClass="TranslationTableViewCell" customModule="RefugeesWelcome" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="60"/>
+                                        <rect key="frame" x="0.0" y="50" width="414" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kXA-ab-1T4" id="fi8-LG-mVE">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="59"/>
@@ -121,15 +122,15 @@
                                 </prototypes>
                             </tableView>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h6F-AV-heG">
-                                <rect key="frame" x="0.0" y="64" width="414" height="623"/>
+                                <rect key="frame" x="0.0" y="-20" width="414" height="643"/>
                                 <subviews>
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jDs-mW-d3t">
-                                        <rect key="frame" x="0.0" y="407" width="414" height="216"/>
+                                        <rect key="frame" x="0.0" y="427" width="414" height="216"/>
                                         <animations/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </pickerView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3GG-GZ-ZWR">
-                                        <rect key="frame" x="0.0" y="367" width="207" height="40"/>
+                                        <rect key="frame" x="0.0" y="387" width="207" height="40"/>
                                         <animations/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -142,7 +143,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OqT-L0-F3I">
-                                        <rect key="frame" x="207" y="367" width="207" height="40"/>
+                                        <rect key="frame" x="207" y="387" width="207" height="40"/>
                                         <animations/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -175,8 +176,8 @@
                             <constraint firstItem="h6F-AV-heG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="4hZ-qE-Brf"/>
                             <constraint firstAttribute="trailing" secondItem="4GU-5S-NZ9" secondAttribute="trailing" id="6ib-3A-sMH"/>
                             <constraint firstItem="Rxw-dm-OSO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="EEw-gk-vPb"/>
-                            <constraint firstItem="h6F-AV-heG" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Oga-ou-9ch"/>
-                            <constraint firstItem="Rxw-dm-OSO" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="SKo-mq-XgB"/>
+                            <constraint firstItem="h6F-AV-heG" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="Oga-ou-9ch"/>
+                            <constraint firstItem="Rxw-dm-OSO" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="SKo-mq-XgB"/>
                             <constraint firstItem="4GU-5S-NZ9" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="TiU-WS-20A"/>
                             <constraint firstAttribute="trailing" secondItem="h6F-AV-heG" secondAttribute="trailing" id="Vxh-bf-nHP"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="4GU-5S-NZ9" secondAttribute="bottom" id="W1W-bS-02d"/>
@@ -206,7 +207,7 @@
                         <viewControllerLayoutGuide type="bottom" id="NCJ-fF-dqn"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="r4k-xa-fZp">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -226,11 +227,11 @@
                         <viewControllerLayoutGuide type="bottom" id="adQ-ZD-uCW"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="EfQ-kf-LSv">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="9zk-1j-jdb">
-                                <rect key="frame" x="0.0" y="64" width="414" height="623"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="687"/>
                                 <animations/>
                             </mapView>
                         </subviews>
@@ -274,10 +275,11 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fRT-nw-l5R" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Phrasebook" id="9fk-iC-1tb"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="UXM-Zz-z4X">
+                    <navigationBar key="navigationBar" hidden="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="10" translucent="NO" id="UXM-Zz-z4X">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <animations/>
+                        <color key="barTintColor" red="0.1215686275" green="0.2784313725" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -294,10 +296,14 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NTv-ux-EqB" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="FAQ" id="70Y-cG-s3a"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="e6I-Lr-y0K">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="e6I-Lr-y0K">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <animations/>
+                        <color key="barTintColor" red="0.1215686275" green="0.2784313725" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -314,10 +320,14 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="myb-KL-Plz" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Map" id="T1Z-gL-dZf"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pcP-hc-VA9">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="pcP-hc-VA9">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <animations/>
+                        <color key="barTintColor" red="0.1215686275" green="0.2784313725" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
