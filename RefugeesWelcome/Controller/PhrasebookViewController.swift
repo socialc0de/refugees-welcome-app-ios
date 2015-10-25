@@ -19,37 +19,45 @@ class PhrasebookViewController: UIViewController, UITableViewDataSource, UITable
     @IBOutlet weak var pickerView: UIPickerView!
     
     let translationCellIdentifier = "translationCell"
-    var phrases = [JSON]()
-    var langauges = ["Turkish", "Portuguese", "Greek phonetic", "Spanish", "Finnish", "Hungarian", "Greek alphabet", "German", "Romanian", "Slovak / Czech", "Bosnian / Croatian / Serbian", "Arabic / Syrian Phonetic", "Kurdish (Kurmanji)", "Macedonian", "Dutch", "Russian", "Polish", "Arabic / Syrian", "Albanian", "English", "Italian"]
-    let rightAligedLanguages = ["Arabic / Syrian"]
     
-    var firstLanguage = "Arabic / Syrian"
-    var targetLanguage = "German"
-    var cleanPhrases = [(firstLanguagePhrase: String, targetLanguagePhrase: String)]()
-    
+    var phrasebook = Phrasebook()
+    var sortedPhrases = [[(firstLanguagePhrase: String, targetLanguagePhrase: String)]]()
+    var sectionNames = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        var path = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as NSString
+        path = path.stringByAppendingPathComponent("phrasebook.archive")
+        
+        if let phrasebook = NSKeyedUnarchiver.unarchiveObjectWithFile(path as String) as? Phrasebook {
+            self.phrasebook = phrasebook
+        }
+        
+        
         translationTable.dataSource = self
         translationTable.delegate = self
         pickerView.dataSource = self
         pickerView.delegate = self
         
-        langauges = langauges.sort()
+        phrasebook.langauges = phrasebook.langauges.sort()
         
-        languageBtn.setTitle("\(firstLanguage) → \(targetLanguage)", forState: .Normal)
+        languageBtn.setTitle("\(phrasebook.firstLanguage) → \(phrasebook.targetLanguage)", forState: .Normal)
         
-        if let firstLanguageIndex = langauges.indexOf(firstLanguage) {
+        if let firstLanguageIndex = phrasebook.langauges.indexOf(phrasebook.firstLanguage) {
             pickerView.selectRow(firstLanguageIndex, inComponent: 0, animated: false)
         }
-        if let targetLanguageIndex = langauges.indexOf(targetLanguage) {
+        if let targetLanguageIndex = phrasebook.langauges.indexOf(phrasebook.targetLanguage) {
             pickerView.selectRow(targetLanguageIndex, inComponent: 1, animated: false)
         }
         
         RequestHelper.loadDataFromUrl("http://pajowu.de:8080/phrasebook/all") { (jsonData) -> Void in
-            self.phrases = jsonData["phrases"].arrayValue
+            self.phrasebook.phrases = jsonData["phrases"]
             self.buildOrUpdatePhraseList()
+            self.phrasebook.save()
         }
+        
+        self.buildOrUpdatePhraseList()
     }
     
     override func didReceiveMemoryWarning() {
@@ -63,46 +71,59 @@ class PhrasebookViewController: UIViewController, UITableViewDataSource, UITable
     
     @IBAction func onLanguageSelectSubmit() {
         pickerContainerView.hidden = true
+        phrasebook.save()
     }
 
     @IBAction func onExchangeLanguagesBtnClicked() {
-        let temp = firstLanguage
-        firstLanguage = targetLanguage
-        targetLanguage = temp
+        let temp = phrasebook.firstLanguage
+        phrasebook.firstLanguage = phrasebook.targetLanguage
+        phrasebook.targetLanguage = temp
         
-        if let firstLanguageIndex = langauges.indexOf(firstLanguage) {
+        if let firstLanguageIndex = phrasebook.langauges.indexOf(phrasebook.firstLanguage) {
             pickerView.selectRow(firstLanguageIndex, inComponent: 0, animated: true)
         }
-        if let targetLanguageIndex = langauges.indexOf(targetLanguage) {
+        if let targetLanguageIndex = phrasebook.langauges.indexOf(phrasebook.targetLanguage) {
             pickerView.selectRow(targetLanguageIndex, inComponent: 1, animated: true)
         }
 
         buildOrUpdatePhraseList()
-        languageBtn.setTitle("\(firstLanguage) → \(targetLanguage)", forState: .Normal)
+        languageBtn.setTitle("\(phrasebook.firstLanguage) → \(phrasebook.targetLanguage)", forState: .Normal)
     }
 
     // MARK: Table View
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
+        return sortedPhrases.count
+    }
+    
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return sectionNames[section]
+    }
+    
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 25
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cleanPhrases.count
+        return sortedPhrases[section].count
+    }
+    
+    func sectionIndexTitlesForTableView(tableView: UITableView) -> [String]? {
+        return sectionNames
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(translationCellIdentifier, forIndexPath: indexPath) as! TranslationTableViewCell
         
-        cell.firstLanguageLabel.text = cleanPhrases[indexPath.row].firstLanguagePhrase
-        cell.targetLanguageLabel.text = cleanPhrases[indexPath.row].targetLanguagePhrase
+        cell.firstLanguageLabel.text = sortedPhrases[indexPath.section][indexPath.row].firstLanguagePhrase
+        cell.targetLanguageLabel.text = sortedPhrases[indexPath.section][indexPath.row].targetLanguagePhrase
         
-        if rightAligedLanguages.contains(firstLanguage) {
+        if phrasebook.rightAligedLanguages.contains(phrasebook.firstLanguage) {
             cell.firstLanguageLabel.textAlignment = .Right
         } else {
             cell.firstLanguageLabel.textAlignment = .Left
         }
-        if rightAligedLanguages.contains(targetLanguage) {
+        if phrasebook.rightAligedLanguages.contains(phrasebook.targetLanguage) {
             cell.targetLanguageLabel.textAlignment = .Right
         } else {
             cell.targetLanguageLabel.textAlignment = .Left
@@ -118,34 +139,38 @@ class PhrasebookViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return langauges.count
+        return phrasebook.langauges.count
     }
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return langauges[row]
+        return phrasebook.langauges[row]
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if component == 0 {
-            firstLanguage = langauges[row]
+            phrasebook.firstLanguage = phrasebook.langauges[row]
         } else if component == 1 {
-            targetLanguage = langauges[row]
+            phrasebook.targetLanguage = phrasebook.langauges[row]
         }
         
         buildOrUpdatePhraseList()
-        languageBtn.setTitle("\(firstLanguage) → \(targetLanguage)", forState: .Normal)
+        languageBtn.setTitle("\(phrasebook.firstLanguage) → \(phrasebook.targetLanguage)", forState: .Normal)
     }
     
     
     // MARK: helper
     
     func buildOrUpdatePhraseList() {
-        cleanPhrases.removeAll()
+        sortedPhrases.removeAll()
+        sectionNames.removeAll()
+
+        var cleanPhrases = [(firstLanguagePhrase: String, targetLanguagePhrase: String)]()
         
-        for phraseSet in phrases {
-            var firstLanguagePhrase = phraseSet[firstLanguage].stringValue.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
-            var targetLanguagePhrase = phraseSet[targetLanguage].stringValue.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
-            
+        // clean phrases
+        for phraseSet in phrasebook.phrases.arrayValue {
+            var firstLanguagePhrase = phraseSet[phrasebook.firstLanguage].stringValue.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+            var targetLanguagePhrase = phraseSet[phrasebook.targetLanguage].stringValue.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+
             firstLanguagePhrase = firstLanguagePhrase.stringByReplacingOccurrencesOfString("\n", withString: " ")
             targetLanguagePhrase = targetLanguagePhrase.stringByReplacingOccurrencesOfString("\n", withString: " ")
             
@@ -155,6 +180,23 @@ class PhrasebookViewController: UIViewController, UITableViewDataSource, UITable
         }
         
         cleanPhrases = cleanPhrases.sort({ $0.firstLanguagePhrase < $1.firstLanguagePhrase })
+        
+        // build sections
+        var section: Character?
+        var index = -1
+        for phraseSet in cleanPhrases {
+
+            let indexLetter = phraseSet.firstLanguagePhrase.uppercaseString[phraseSet.firstLanguagePhrase.startIndex]
+
+            if indexLetter != section {
+                section = indexLetter
+                index += 1
+                sectionNames.append(String(section!))
+                sortedPhrases.append([(firstLanguagePhrase: String, targetLanguagePhrase: String)]())
+            }
+            
+            sortedPhrases[index].append((firstLanguagePhrase: phraseSet.firstLanguagePhrase, targetLanguagePhrase: phraseSet.targetLanguagePhrase))
+        }
         
         translationTable.reloadData()
     }
