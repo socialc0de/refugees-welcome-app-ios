@@ -62,20 +62,37 @@ class MapViewController: UIViewController {
     }
     
     func loadAnnotations(type: ClusterType) {
-        var annotations = [MKPointAnnotation]()
-        var url = "http://pajowu.de:8080/poi/"
-        url += type == .Wifi ? "wifi" : "authorities"
+        var annotations = [CCHMapClusterAnnotation]()
+        var url = "http://pajowu.de:8080/"
+        url += type == .Wifi ? "wifi/KrS" : "poi/all"
         
         RequestHelper.loadDataFromUrl(url) { (jsonData) -> Void in
             let mapItems = jsonData["items"].arrayValue
-            
+            print("received \(mapItems.count) items")
             for jsonElem in mapItems {
-                let latitude = (jsonElem["location"]["lat"].stringValue as NSString).doubleValue
-                let longitude = (jsonElem["location"]["lng"].stringValue as NSString).doubleValue
                 
-                let annotation = MKPointAnnotation()
-                annotation.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-                annotation.title = jsonElem["addresse"].stringValue
+                let annotation = CCHMapClusterAnnotation()
+                
+                var lat: Double = 0.0
+                var lon: Double = 0.0
+                
+                if type == .Wifi {
+                    lat = (jsonElem["lat"].stringValue as NSString).doubleValue
+                    lon = (jsonElem["lon"].stringValue as NSString).doubleValue
+                    annotation.title = "Hotspot"
+                } else {
+                    lat = (jsonElem["location"]["lat"].stringValue as NSString).doubleValue
+                    lon = (jsonElem["location"]["lng"].stringValue as NSString).doubleValue
+                    
+                    let openingHours = jsonElem["offnungszeiten"].stringValue
+                    let address = jsonElem["adresse"].stringValue
+                    
+                    annotation.title = "Authority Information"
+                    annotation.subtitle = openingHours + "\n" + address
+                }
+                
+                annotation.coordinate = CLLocationCoordinate2D(latitude: lat, longitude: lon)
+                
                 annotations.append(annotation)
             }
             self.mapClusterController?.addAnnotations(annotations, withCompletionHandler: nil)
@@ -86,14 +103,17 @@ class MapViewController: UIViewController {
         let annotationsToRemove = mapClusterController!.annotations
         mapClusterController?.removeAnnotations(Array(annotationsToRemove), withCompletionHandler: nil)
         loadAnnotations(currentMode)
+        
+        // change title based on cluster mode
+        self.navigationItem.title = (currentMode == .Wifi) ? "WiFi Hotspots" : "Authorities"
     }
 }
 
 extension MapViewController: CLLocationManagerDelegate {
     func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
-        
         if status == CLAuthorizationStatus.AuthorizedAlways || status == CLAuthorizationStatus.AuthorizedWhenInUse {
             mapView.showsUserLocation = true
+            
             locationManager?.startUpdatingLocation()
         } else {
             mapView.showsUserLocation = false
@@ -104,6 +124,7 @@ extension MapViewController: CLLocationManagerDelegate {
 
 extension MapViewController: MKMapViewDelegate {
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+        
         if let annotation = annotation as? CCHMapClusterAnnotation {
             let identifier = "clusterAnnotation"
             
@@ -125,7 +146,10 @@ extension MapViewController: MKMapViewDelegate {
 }
 
 extension MapViewController: CCHMapClusterControllerDelegate {
-    func mapClusterController(mapClusterController: CCHMapClusterController!, titleForMapClusterAnnotation mapClusterAnnotation: CCHMapClusterAnnotation!) -> String! {
-        return "\(mapClusterAnnotation.annotations.count) Items"
-    }
+    /*func mapClusterController(mapClusterController: CCHMapClusterController!, titleForMapClusterAnnotation mapClusterAnnotation: CCHMapClusterAnnotation!) -> String! {
+        if mapClusterAnnotation.annotations.count > 1 {
+            return "\(mapClusterAnnotation.annotations.count) Items"
+        }
+        return ""
+    }*/
 }

@@ -19,7 +19,7 @@ class PinClusterView: MKAnnotationView {
     }
     var count = 1 {
         didSet {
-            self.countLabel.text = "\(count)"
+            self.countLabel.text = (count > 1) ? "\(count)" : ""
             self.setNeedsLayout()
         }
     }
