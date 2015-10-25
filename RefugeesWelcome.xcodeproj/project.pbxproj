@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		272F2126CCFCD3EABE99820A /* Pods_RefugeesWelcome.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B7405B17B222E456B506B58 /* Pods_RefugeesWelcome.framework */; };
+		5411A8CF1BDD02E600FB8E87 /* Phrasebook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5411A8CE1BDD02E600FB8E87 /* Phrasebook.swift */; };
 		54E900431BDBE6FD00FCA19A /* (null) in Resources */ = {isa = PBXBuildFile; };
 		54E900441BDBE6FD00FCA19A /* (null) in Resources */ = {isa = PBXBuildFile; };
 		54E900451BDBE6FD00FCA19A /* (null) in Resources */ = {isa = PBXBuildFile; };
@@ -27,11 +28,12 @@
 		95B7F9DE1BDBD08600D9CC4A /* FAQViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B7F9DD1BDBD08600D9CC4A /* FAQViewController.swift */; };
 		95B7F9E01BDBD09100D9CC4A /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B7F9DF1BDBD09100D9CC4A /* MapViewController.swift */; };
 		95B7F9E21BDBD87A00D9CC4A /* TranslationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B7F9E11BDBD87A00D9CC4A /* TranslationTableViewCell.swift */; };
-		95F9AA331BDC2C6000274199 /* PinClusterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F9AA321BDC2C6000274199 /* PinClusterView.swift */; settings = {ASSET_TAGS = (); }; };
+		95F9AA331BDC2C6000274199 /* PinClusterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F9AA321BDC2C6000274199 /* PinClusterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0B7405B17B222E456B506B58 /* Pods_RefugeesWelcome.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RefugeesWelcome.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5411A8CE1BDD02E600FB8E87 /* Phrasebook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Phrasebook.swift; path = Models/Phrasebook.swift; sourceTree = "<group>"; };
 		54EB58D91BDBDEA700837401 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
 		954D25BB1BDC0FB000DCAEE8 /* RequestHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestHelper.swift; sourceTree = "<group>"; };
 		95B7F9C41BDBCF0900D9CC4A /* RefugeesWelcome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RefugeesWelcome.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,6 +72,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		5411A8CD1BDD025500FB8E87 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5411A8CE1BDD02E600FB8E87 /* Phrasebook.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		954D25BA1BDBFFD000DCAEE8 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +109,7 @@
 		95B7F9C61BDBCF0900D9CC4A /* RefugeesWelcome */ = {
 			isa = PBXGroup;
 			children = (
+				5411A8CD1BDD025500FB8E87 /* Models */,
 				95B7F9C71BDBCF0900D9CC4A /* AppDelegate.swift */,
 				95B7F9DB1BDBD05100D9CC4A /* View */,
 				95B7F9DC1BDBD06200D9CC4A /* Controller */,
@@ -275,6 +286,7 @@
 				95B7F9DE1BDBD08600D9CC4A /* FAQViewController.swift in Sources */,
 				54E900571BDBEB2500FCA19A /* (null) in Sources */,
 				95B7F9DA1BDBD04900D9CC4A /* PhrasebookViewController.swift in Sources */,
+				5411A8CF1BDD02E600FB8E87 /* Phrasebook.swift in Sources */,
 				95B7F9C81BDBCF0900D9CC4A /* AppDelegate.swift in Sources */,
 				95B7F9E01BDBD09100D9CC4A /* MapViewController.swift in Sources */,
 				95F9AA331BDC2C6000274199 /* PinClusterView.swift in Sources */,
