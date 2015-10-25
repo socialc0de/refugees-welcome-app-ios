@@ -9,13 +9,6 @@
 import UIKit
 
 class TranslationSectionsCell: UICollectionViewCell {
-    
-    var onsectionButtonClicked: (() -> Void)?
-    
-    @IBOutlet weak var sectionButton: UIButton!
-    @IBAction func sectionButtonClicked() {
-        if let onsectionButtonClicked = onsectionButtonClicked {
-            onsectionButtonClicked()
-        }
-    }
+    let colorForSelectedState =  UIColor(red:1.00, green:0.25, blue:0.51, alpha:1.0)
+    @IBOutlet weak var sectionLabel: UILabel!
 }

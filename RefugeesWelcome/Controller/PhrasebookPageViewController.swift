@@ -11,7 +11,7 @@ import UIKit
 class PhrasebookPageViewController: UIPageViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     
     var phrasebook: Phrasebook?
-    var sectionIndex = 0
+    var currentSectionIndex = 0
     var currentTableViewController: PhrasebookTableViewController?
 
     override func viewDidLoad() {
@@ -21,7 +21,7 @@ class PhrasebookPageViewController: UIPageViewController, UIPageViewControllerDa
         delegate = self
         
         if let tableView = contentAtIndex(0) {
-            setViewControllers([tableView], direction: UIPageViewControllerNavigationDirection.Forward, animated: false, completion: nil)
+            setViewControllers([tableView], direction: .Forward, animated: false, completion: nil)
         }
     }
     
@@ -33,9 +33,18 @@ class PhrasebookPageViewController: UIPageViewController, UIPageViewControllerDa
     }
     
     func goToSection(sectionIndex: Int) {
+        if sectionIndex == currentSectionIndex {
+            return
+        }
         if let tableView = contentAtIndex(sectionIndex) {
-            setViewControllers([tableView], direction: UIPageViewControllerNavigationDirection.Forward, animated: true, completion: nil)
-            self.sectionIndex = sectionIndex
+            var direction: UIPageViewControllerNavigationDirection!
+            if sectionIndex < currentSectionIndex {
+                direction = .Reverse
+            } else {
+                direction = .Forward
+            }
+            setViewControllers([tableView], direction: direction, animated: true, completion: nil)
+            self.currentSectionIndex = sectionIndex
         }
     }
 
@@ -61,13 +70,5 @@ class PhrasebookPageViewController: UIPageViewController, UIPageViewControllerDa
     
     func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
         return contentAtIndex(1)
-    }
-    
-    func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
-        return 1
-    }
-    
-    func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {
-        return 0
     }
 }

@@ -10,7 +10,7 @@ import UIKit
 import SwiftyJSON
 import Alamofire
 
-class PhrasebookViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UICollectionViewDataSource {
+class PhrasebookViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate {
 
     @IBOutlet weak var pickerContainerView: UIView!
     @IBOutlet weak var pickerView: UIPickerView!
@@ -22,7 +22,12 @@ class PhrasebookViewController: UIViewController, UIPickerViewDataSource, UIPick
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        pickerView.dataSource = self
+        pickerView.delegate = self
+        sectionsContainer.dataSource = self
+        sectionsContainer.delegate = self
         
+        // get data
         var path = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as NSString
         path = path.stringByAppendingPathComponent("phrasebook.archive")
         
@@ -36,14 +41,14 @@ class PhrasebookViewController: UIViewController, UIPickerViewDataSource, UIPick
             self.phrasebook.save()
             self.tableContainer.update()
         }
-                
-        pickerView.dataSource = self
-        pickerView.delegate = self
-        sectionsContainer.dataSource = self
         
         phrasebook.langauges = phrasebook.langauges.sort()
         
         languageBtn.setTitle("\(phrasebook.firstLanguage) → \(phrasebook.targetLanguage)", forState: .Normal)
+        
+        let firstSection =  NSIndexPath(forRow: 0, inSection: 0)
+        sectionsContainer.selectItemAtIndexPath(firstSection, animated: false, scrollPosition: .Left)
+        collectionView(sectionsContainer, didSelectItemAtIndexPath: firstSection)
         
         if let firstLanguageIndex = phrasebook.langauges.indexOf(phrasebook.firstLanguage) {
             pickerView.selectRow(firstLanguageIndex, inComponent: 0, animated: false)
@@ -91,14 +96,30 @@ class PhrasebookViewController: UIViewController, UIPickerViewDataSource, UIPick
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("section", forIndexPath: indexPath) as! TranslationSectionsCell
-        cell.sectionButton.setTitle("Section \(indexPath.row)", forState: .Normal)
-        cell.onsectionButtonClicked = {
-            print("section \(indexPath.row) selected")
-            self.tableContainer.goToSection(indexPath.row)
+        cell.sectionLabel.text = "Section \(indexPath.row)"
+        if cell.selected {
+            cell.sectionLabel.textColor = cell.colorForSelectedState
+        } else {
+            cell.sectionLabel.textColor = UIColor.darkGrayColor()
         }
-        
+
         return cell
     }
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        if let cell = collectionView.cellForItemAtIndexPath(indexPath) as? TranslationSectionsCell {
+            cell.sectionLabel.textColor = cell.colorForSelectedState
+        }
+        self.tableContainer.goToSection(indexPath.row)
+        self.sectionsContainer.scrollToItemAtIndexPath(indexPath, atScrollPosition: .CenteredHorizontally, animated: true)
+    }
+    
+    func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
+        if let cell = collectionView.cellForItemAtIndexPath(indexPath) as? TranslationSectionsCell {
+            cell.sectionLabel.textColor = UIColor.darkGrayColor()
+        }
+    }
+    
 
     // MARK: Picker View
     

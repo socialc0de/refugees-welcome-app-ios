@@ -59,18 +59,23 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="100" height="30"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pei-oF-a1i">
-                                                            <rect key="frame" x="0.0" y="2" width="70" height="30"/>
-                                                            <state key="normal" title="Button"/>
-                                                            <connections>
-                                                                <action selector="sectionButtonClicked" destination="5UG-Ih-oDG" eventType="touchUpInside" id="jbB-aY-ZrJ"/>
-                                                            </connections>
-                                                        </button>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ydb-gL-dro">
+                                                            <rect key="frame" x="8" y="8" width="84" height="14"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </view>
+                                                <constraints>
+                                                    <constraint firstAttribute="bottomMargin" secondItem="ydb-gL-dro" secondAttribute="bottom" id="RwH-HF-MrU"/>
+                                                    <constraint firstItem="ydb-gL-dro" firstAttribute="top" secondItem="5UG-Ih-oDG" secondAttribute="topMargin" id="bvO-hf-7fd"/>
+                                                    <constraint firstItem="ydb-gL-dro" firstAttribute="leading" secondItem="5UG-Ih-oDG" secondAttribute="leadingMargin" id="lz9-oQ-kvd"/>
+                                                    <constraint firstAttribute="trailingMargin" secondItem="ydb-gL-dro" secondAttribute="trailing" id="zH9-02-2om"/>
+                                                </constraints>
                                                 <connections>
-                                                    <outlet property="sectionButton" destination="pei-oF-a1i" id="tRX-B6-rEq"/>
+                                                    <outlet property="sectionLabel" destination="ydb-gL-dro" id="pik-3Q-l9l"/>
                                                 </connections>
                                             </collectionViewCell>
                                         </cells>
