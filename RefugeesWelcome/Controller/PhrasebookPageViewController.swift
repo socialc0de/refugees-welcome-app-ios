@@ -11,6 +11,7 @@ import UIKit
 class PhrasebookPageViewController: UIPageViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     
     var phrasebook: Phrasebook?
+    var sectionSelector: UICollectionView?
     var currentSectionIndex = 0
     var currentTableViewController: PhrasebookTableViewController?
 
@@ -54,7 +55,17 @@ class PhrasebookPageViewController: UIPageViewController, UIPageViewControllerDa
     }
     
     func contentAtIndex(index: Int) -> PhrasebookTableViewController? {
+        var numberOfSections = sectionSelector?.numberOfItemsInSection(0)
+        if numberOfSections == nil {
+            numberOfSections = 1
+        }
+        
+        if index < 0 || index >= numberOfSections {
+            return nil
+        }
+
         let tableViewController = storyboard?.instantiateViewControllerWithIdentifier("PhrasebookTableViewController") as! PhrasebookTableViewController
+        tableViewController.sectionIndex = index
         if let phrasebook = phrasebook {
             tableViewController.phrasebook = phrasebook
         }
@@ -65,10 +76,21 @@ class PhrasebookPageViewController: UIPageViewController, UIPageViewControllerDa
     }
     
     func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
-        return contentAtIndex(1)
+        return contentAtIndex(currentSectionIndex - 1)
     }
     
     func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
-        return contentAtIndex(1)
+        return contentAtIndex(currentSectionIndex + 1)
+    }
+    
+    func pageViewController(pageViewController: UIPageViewController, willTransitionToViewControllers pendingViewControllers: [UIViewController]) {
+        if let index = (pendingViewControllers[0] as? PhrasebookTableViewController)?.sectionIndex {
+            currentSectionIndex = index
+            if let sectionSelector = sectionSelector {
+                let indexPath = NSIndexPath(forRow: index, inSection: 0)
+                sectionSelector.selectItemAtIndexPath(indexPath, animated: true, scrollPosition: .CenteredHorizontally)
+                sectionSelector.reloadSections(NSIndexSet(index: 0))
+            }
+        }
     }
 }

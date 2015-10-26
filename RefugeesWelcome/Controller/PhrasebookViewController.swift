@@ -33,9 +33,10 @@ class PhrasebookViewController: UIViewController, UIPickerViewDataSource, UIPick
         
         if let phrasebook = NSKeyedUnarchiver.unarchiveObjectWithFile(path as String) as? Phrasebook {
             self.phrasebook = phrasebook
-            tableContainer.phrasebook = phrasebook
             tableContainer.update()
         }
+        tableContainer.phrasebook = phrasebook
+        tableContainer.sectionSelector = sectionsContainer
         RequestHelper.loadDataFromUrl("http://pajowu.de:8080/phrasebook/all") { (jsonData) -> Void in
             self.phrasebook.phrases = jsonData["phrases"]
             self.phrasebook.save()
@@ -43,12 +44,8 @@ class PhrasebookViewController: UIViewController, UIPickerViewDataSource, UIPick
         }
         
         phrasebook.langauges = phrasebook.langauges.sort()
-        
+
         languageBtn.setTitle("\(phrasebook.firstLanguage) → \(phrasebook.targetLanguage)", forState: .Normal)
-        
-        let firstSection =  NSIndexPath(forRow: 0, inSection: 0)
-        sectionsContainer.selectItemAtIndexPath(firstSection, animated: false, scrollPosition: .Left)
-        collectionView(sectionsContainer, didSelectItemAtIndexPath: firstSection)
         
         if let firstLanguageIndex = phrasebook.langauges.indexOf(phrasebook.firstLanguage) {
             pickerView.selectRow(firstLanguageIndex, inComponent: 0, animated: false)
@@ -91,12 +88,13 @@ class PhrasebookViewController: UIViewController, UIPickerViewDataSource, UIPick
     // MARK: Collection View
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return 5
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("section", forIndexPath: indexPath) as! TranslationSectionsCell
         cell.sectionLabel.text = "Section \(indexPath.row)"
+        cell.selected = tableContainer.currentSectionIndex == indexPath.row
         if cell.selected {
             cell.sectionLabel.textColor = cell.colorForSelectedState
         } else {
@@ -107,19 +105,10 @@ class PhrasebookViewController: UIViewController, UIPickerViewDataSource, UIPick
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        if let cell = collectionView.cellForItemAtIndexPath(indexPath) as? TranslationSectionsCell {
-            cell.sectionLabel.textColor = cell.colorForSelectedState
-        }
         self.tableContainer.goToSection(indexPath.row)
         self.sectionsContainer.scrollToItemAtIndexPath(indexPath, atScrollPosition: .CenteredHorizontally, animated: true)
+        self.sectionsContainer.reloadSections(NSIndexSet(index: 0))
     }
-    
-    func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
-        if let cell = collectionView.cellForItemAtIndexPath(indexPath) as? TranslationSectionsCell {
-            cell.sectionLabel.textColor = UIColor.darkGrayColor()
-        }
-    }
-    
 
     // MARK: Picker View
     

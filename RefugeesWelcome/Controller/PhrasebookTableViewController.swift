@@ -17,6 +17,7 @@ class PhrasebookTableViewController: UIViewController, UITableViewDataSource, UI
     let translationCellIdentifier = "translationCell"
     
     var phrasebook = Phrasebook()
+    var sectionIndex = 0
     var sortedPhrases = [[(firstLanguagePhrase: String, targetLanguagePhrase: String)]]()
     var sectionNames = [String]()
     
