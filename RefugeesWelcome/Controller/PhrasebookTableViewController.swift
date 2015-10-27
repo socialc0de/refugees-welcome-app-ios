@@ -31,6 +31,10 @@ class PhrasebookTableViewController: UIViewController, UITableViewDataSource, UI
         self.buildOrUpdatePhraseList()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        self.buildOrUpdatePhraseList()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -94,11 +98,16 @@ class PhrasebookTableViewController: UIViewController, UITableViewDataSource, UI
             firstLanguagePhrase = firstLanguagePhrase.stringByReplacingOccurrencesOfString("\n", withString: " ").stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
             targetLanguagePhrase = targetLanguagePhrase.stringByReplacingOccurrencesOfString("\n", withString: " ").stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
             
-            if firstLanguagePhrase != "" && targetLanguagePhrase != "" {
+            // dont add phrases that have no translation
+            let firstLangNotEmpty = firstLanguagePhrase != "" && firstLanguagePhrase != "-"
+            let targetLangNotEmpty = targetLanguagePhrase != "" && targetLanguagePhrase != "-"
+
+            if firstLangNotEmpty && targetLangNotEmpty {
                 cleanPhrases.append((firstLanguagePhrase: firstLanguagePhrase, targetLanguagePhrase: targetLanguagePhrase))
             }
         }
         cleanPhrases = cleanPhrases.sort({
+            // ignore special charactes like [] or () for sorting
             let first = $0.firstLanguagePhrase.stringByTrimmingCharactersInSet(NSCharacterSet.letterCharacterSet().invertedSet)
             let second = $1.firstLanguagePhrase.stringByTrimmingCharactersInSet(NSCharacterSet.letterCharacterSet().invertedSet)
             return first.localizedCaseInsensitiveCompare(second) == .OrderedAscending
@@ -109,6 +118,7 @@ class PhrasebookTableViewController: UIViewController, UITableViewDataSource, UI
         var index = -1
         for phraseSet in cleanPhrases {
             
+            // ignore special charactes like [] or () for sections
             let trimmedString = phraseSet.firstLanguagePhrase.stringByTrimmingCharactersInSet(NSCharacterSet.letterCharacterSet().invertedSet)
             let indexLetter = trimmedString.uppercaseString[trimmedString.startIndex]
             

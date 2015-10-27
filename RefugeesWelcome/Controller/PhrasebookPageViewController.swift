@@ -30,7 +30,11 @@ class PhrasebookPageViewController: UIPageViewController, UIPageViewControllerDa
         if let phrasebook = phrasebook {
             currentTableViewController?.phrasebook = phrasebook
         }
-        currentTableViewController?.buildOrUpdatePhraseList()
+        if let viewControllers = viewControllers as? [PhrasebookTableViewController] {
+            for viewController in viewControllers {
+                viewController.buildOrUpdatePhraseList()
+            }
+        }
     }
     
     func goToSection(sectionIndex: Int) {
