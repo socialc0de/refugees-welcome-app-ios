@@ -88,25 +88,29 @@ class PhrasebookTableViewController: UIViewController, UITableViewDataSource, UI
         
         // clean phrases
         for phraseSet in phrasebook.phrases.arrayValue {
-            var firstLanguagePhrase = phraseSet[phrasebook.firstLanguage].stringValue.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
-            var targetLanguagePhrase = phraseSet[phrasebook.targetLanguage].stringValue.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+            var firstLanguagePhrase = phraseSet[phrasebook.firstLanguage].stringValue
+            var targetLanguagePhrase = phraseSet[phrasebook.targetLanguage].stringValue
             
-            firstLanguagePhrase = firstLanguagePhrase.stringByReplacingOccurrencesOfString("\n", withString: " ")
-            targetLanguagePhrase = targetLanguagePhrase.stringByReplacingOccurrencesOfString("\n", withString: " ")
+            firstLanguagePhrase = firstLanguagePhrase.stringByReplacingOccurrencesOfString("\n", withString: " ").stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+            targetLanguagePhrase = targetLanguagePhrase.stringByReplacingOccurrencesOfString("\n", withString: " ").stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
             
             if firstLanguagePhrase != "" && targetLanguagePhrase != "" {
                 cleanPhrases.append((firstLanguagePhrase: firstLanguagePhrase, targetLanguagePhrase: targetLanguagePhrase))
             }
         }
-        
-        cleanPhrases = cleanPhrases.sort({ $0.firstLanguagePhrase < $1.firstLanguagePhrase })
-        
+        cleanPhrases = cleanPhrases.sort({
+            let first = $0.firstLanguagePhrase.stringByTrimmingCharactersInSet(NSCharacterSet.letterCharacterSet().invertedSet)
+            let second = $1.firstLanguagePhrase.stringByTrimmingCharactersInSet(NSCharacterSet.letterCharacterSet().invertedSet)
+            return first.localizedCaseInsensitiveCompare(second) == .OrderedAscending
+        })
+
         // build sections
         var section: Character?
         var index = -1
         for phraseSet in cleanPhrases {
             
-            let indexLetter = phraseSet.firstLanguagePhrase.uppercaseString[phraseSet.firstLanguagePhrase.startIndex]
+            let trimmedString = phraseSet.firstLanguagePhrase.stringByTrimmingCharactersInSet(NSCharacterSet.letterCharacterSet().invertedSet)
+            let indexLetter = trimmedString.uppercaseString[trimmedString.startIndex]
             
             if indexLetter != section {
                 section = indexLetter

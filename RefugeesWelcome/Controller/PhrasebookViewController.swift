@@ -37,7 +37,7 @@ class PhrasebookViewController: UIViewController, UIPickerViewDataSource, UIPick
         }
         tableContainer.phrasebook = phrasebook
         tableContainer.sectionSelector = sectionsContainer
-        RequestHelper.loadDataFromUrl("http://pajowu.de:8080/phrasebook/all") { (jsonData) -> Void in
+        RequestHelper.loadDataFromUrl("https://raw.githubusercontent.com/socialc0de/germany-says-welcome-backend/master/mock/phrasebook.json") { (jsonData) -> Void in
             self.phrasebook.phrases = jsonData["phrases"]
             self.phrasebook.save()
             self.tableContainer.update()
