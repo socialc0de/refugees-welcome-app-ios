@@ -21,6 +21,8 @@ and use the RefugeesWelcome.xcworkspace file.
 
 ### Phrasebook
 
+<img src="https://raw.githubusercontent.com/socialc0de/screenshots-and-screencasts/master/ios/Screen%20Shot%202015-11-24%20at%2016.08.46.png" width="300">
+
   - [x] store phrases offline
   - [x] add UI to switch sections
   - [ ] get different sections from API
@@ -33,6 +35,8 @@ and use the RefugeesWelcome.xcworkspace file.
   this one is just empty
   
 ### Map
+
+<img src="https://raw.githubusercontent.com/socialc0de/screenshots-and-screencasts/master/ios/IMG_0001.PNG" width="300">
 
   - [x] show markers on map
   - [x] get own position
