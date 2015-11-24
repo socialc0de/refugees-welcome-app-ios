@@ -16,7 +16,7 @@ and use the RefugeesWelcome.xcworkspace file.
 
 ### To Do
   
-  - [ ] add app icon an start screen
+  - [ ] add app icon and start screen
   - [ ] add icons to navigation
 
 ### Phrasebook
